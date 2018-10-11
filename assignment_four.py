@@ -11,7 +11,7 @@ def draw_card():
 
 def dealer_cards():
     """
-    This function gets 
+    This function draws the dealers cards and prints what the dealer drew
     :return:
     """
     card4 = draw_card()
@@ -25,6 +25,12 @@ def dealer_cards():
 
 
 def win(player, dealer):
+    """
+    This function defines a win or loss by saying if the players value is more, they win
+    :param player:
+    :param dealer:
+    :return:
+    """
     if player > dealer:
         print("You have won!")
     elif dealer > player:
@@ -34,7 +40,7 @@ def win(player, dealer):
 
 
 def main():
-    card1=draw_card()
+    card1=s=draw_card()
     card2=draw_card()
     card3=draw_card()
     total = card1 + card2
@@ -51,8 +57,12 @@ def main():
         print(card1 + card2 + card3)
         total = total + card3
         print("Your new total is", total)
-    dealer = dealer_cards()
-    win(total, dealer)
+    if total > 21:
+        print("Sorry you loose")
+
+    else:
+        dealer = dealer_cards()
+        win(total, dealer)
 
 
 main()
